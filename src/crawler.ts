@@ -1949,10 +1949,9 @@ self.__bx_behaviors.selectMainBehavior();
       }
     }
 
-    if (this.deduping) {
-      //await this.crawlState.clearDupeCrawlRef();
-
+    if (this.finalExit && generateFiles && this.deduping) {
       // commit crawl data to main index
+      logger.info("Committing dedupe index");
       await this.crawlState.commitDedupeDone();
     }
 
